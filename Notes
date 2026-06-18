@@ -1,0 +1,46 @@
+1. For Any Python Project Create Seprate environment Using - python -m menv environment_name
+2. For Installing FastApi You Have To Write - Pip Install FastApi
+3. And For Fast Api Uvicorn Is Also Needed Which Works As a server - pip install uvicorn
+
+Main Programming 
+    1. For FastApi Works First You Have To Create On Main Python File Then In That ( From fastapi import FastAPI ) And Create A Proper Object Or Instance Of Fast FastAPI
+       Like App = FastApi () 
+       So When We Need To Use FastApi Just Call App Okayy
+    
+    2. So Basic Second Step Is That You Have To Create API ( Routes )
+       So It's Look Like :-
+            @app.get("/"):
+            def function_name():
+                // All Your Logical Parts Here And After That
+                return {"Message":"Hello Ratikant"}
+
+    3. So As You Know Their Any Many Types Of Routes Or Api's Like
+        1.Get 2.Post 3.Put 4.Patch 5.Update 6.Delete 
+        So Depending upon Your Requirements You Can Create Routs Types
+
+    4. To Run Our FastApi Program You Have To Write A Command 
+        - uvicorn main:app --reload // This is main Command To Run The Project 
+        - But You Can Use It also ( uvicorn main:app ) But Problem Is That If You Do Chances In You Program Then You Have to again execute this command to 
+          see the changes .
+        - But Using uvicorn main:app --reload helps that if you make changes in code and refresh in web then you will see the changes you dont have to be 
+          execute this command again and again . 
+
+    5. Their Are Two Types Of Parameter In FastApi 
+        - 1. Path Parameter
+            - In This We Send Values Using Url And In Paramter Column We Have To Mention Its Datatype
+                @app.get("/Path-Parameter/{parameter}") # Here You Can Take Any Name You Want
+                def path_parameter(parameter:str):      # Here We Have To Declare Our Datatype Of Parameter
+                    // Code Goes Here
+        
+        - 2. Query Parameter
+            - In This We Send Values By Body To Hide From Url and we can send multiple values using Query Parameter
+                @app.get("/query-parameter")
+                def query_parameter(parameter1:dataype , parameter2:dataype):
+                    // Code Goes Here
+
+            - But If You Want Something Optional Or Cant Decide User Will Fill This or not then you should use optional Keyword
+            - For That You Have To Import ( from typing import Optional )
+            - You Can Do Optional Any Parameter As You Want 
+                @app.get("query-optional-parameter")
+                def query_optional_parameter(parameter1: Optional[datatype]=None , parameter2:dataype)
+                    // Code Goes Here
