@@ -44,3 +44,5 @@ Main Programming
                 @app.get("query-optional-parameter")
                 def query_optional_parameter(parameter1: Optional[datatype]=None , parameter2:dataype)
                     // Code Goes Here
+
+    6. While We Work On Post,Put,Delete Routes Then it should be have different Condtion's like i did it in crud.py for more understanding 
