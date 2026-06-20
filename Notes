@@ -46,3 +46,41 @@ Main Programming
                     // Code Goes Here
 
     6. While We Work On Post,Put,Delete Routes Then it should be have different Condtion's like i did it in crud.py for more understanding 
+
+    7. Now We are going to work with database for that you have to install mysql workbench (SQLAlchemy ORM) and after that you have to use ORM (Object Relation Manager)
+        - ORM (Object Relational Mapper) let us interact with database using python objects instead of SQL - easier and less error-prone
+        - You Define Python Classes (Models) and SQLAlchemy converts them into SQL .
+        - It makes your FastAPI code cleaner and more pythonic 
+        - We Are Using SQLAlchemy ORM - A powerful Python Library that lets you work with databases using python classes instead of writing SQL queries. FastApi dosen't force you to use any one database , but SQLAlchemy is one of the most common and flexible choices .
+        - For Using databse download and install mysql and also mysql workbench
+        - Now we need to install two libraries to use sqlalchemy is sqlalchmy and another one is pymysql .
+
+    8. How Database Connection And its architecture works her it is 
+        -In FastAPI with SQLAlchemy, all three files work together like a small team.
+
+        `database.py` is responsible for creating the connection with MySQL. It stores database details (username, password, database name), creates the engine (connection road), creates SessionLocal (used to talk with database), and creates Base (parent for all tables). It also provides `get_db()` which opens and closes database connections automatically whenever an API needs database access.
+
+       `model.py` is responsible for defining table structure. Here we create Python classes (like `Book`) that inherit from `Base`. Every class becomes a table and every Column becomes a column inside MySQL. This file only describes how data should look, it does not create tables.
+      
+       `create_table.py` is responsible for actually creating tables inside MySQL. It imports `model.py` so SQLAlchemy knows which tables exist, then runs `Base.metadata.create_all(bind=engine)` to create those tables in the connected database.
+      
+`       Flow:
+`       
+`       database.py → Creates connection
+`       ↓
+`       model.py → Defines table blueprint
+`       ↓
+`       create_table.py → Creates real tables in MySQL
+`       ↓
+`       main.py → Uses those tables for CRUD operations
+`       
+`       Example:
+`       
+`       User sends Create Book request
+`       → FastAPI receives request
+`       → `get_db()` opens DB connection
+`       → `Book` model prepares data structure
+`       → data inserted into `books` table
+`       → commit saves data
+`       → connection closes
+
