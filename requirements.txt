@@ -2,3 +2,7 @@ fastapi
 uvicorn
 sqlalchemy
 pymysql
+passlib[argon2] # This Library Basically Use To Hash Our Password
+python-jose[cryptography] # This is basically used for creating jwt token
+python-multipart # This library used to parse our deta of submitting form
+pydantic[email] # this is used for using proper email address

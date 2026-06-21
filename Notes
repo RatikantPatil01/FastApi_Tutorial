@@ -84,3 +84,38 @@ Main Programming
 `       → commit saves data
 `       → connection closes
 
+
+
+    9. Now We Came To The Point Of JWT in FastApi Okayy
+
+        1. What is authentication vs authorization 
+            - Authenticatoin measn verifying who a user is 
+            - Authorization means what features is user allowed to do 
+            - Ex. Is someone book a taxi then he authenticated that he was able to enter in taxi but authorization means he just sit in taxi not to drive taxi because of authorization .
+
+        2. What & Why Use JWT ( JSON WEB TOKENS )?
+            - JWT stands for Json Web Token - a compact token sent by clients to prove they are authenticated ..
+            - Tokens are signed with a secret key , so the server can verify they haven't been tampered with ..
+            - No server-side session storage is needed - everything needed to verify is inside the token
+
+        3. How JWT Works ?
+            1. User Logs in with credentials
+            2. Server Verifies login and generates a JWT token
+            3. Client includes this token in the Authorization header for future request
+            4. Server checks token validity before responding
+            5. This pattern makes scalable and stateless authentication possible.
+            (Flow = User Login -> Server Creats JWT -> Client Stores Token -> Client Sends Token -> Server Validates Token -> Access Granted)
+
+
+        4. Components Needed For Auth In FastApi ?
+            1. OAuth2 with password flow and bearer Token .
+            2. JWT Token Generation Libraries Like Python-jose or PyJWT
+            3. Password Hashing Library like passlib[argon2]
+
+        5. From Her JWT Implementing Start Her is Auth File Section
+            1. First Install This Library Which Is Needed For Applying JWT Auth :- passlib[argon2] ,python-jose[cryptography] ,python-multipart, pydantic[email]
+            2. Now Create A Auth Folder in that connect database (auth_database.py) , Now Create a .py for creating table i.e (auth_table.py) , After This now create a model to mention our table name and fields in it i.e (models.py) And Also one more we have to mention our all pydnatic classed in one file that is (schemas.py)
+            3. Now We Have To create a file called utilis.py in which we hash our password and also we check our password .
+            4. Now We have to create one file that create a secret key which we are storing in main.py (in future we store in .env) you can give secret_key by your self but we trust on system soo create a key and add in that variable
+
+        
