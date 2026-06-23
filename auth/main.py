@@ -14,10 +14,10 @@ from sqlalchemy.orm import session
 # models → SQLAlchemy tables
 # schemas → Pydantic validation
 # utils → Helper functions (hash password etc.)
-import models, schemas, utils
+from auth import models, schemas, utils
 
 # Database connection function
-from auth_database import get_db
+from auth.auth_database import get_db
 
 # JWT functions
 # jwt → create/decode token

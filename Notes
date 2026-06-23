@@ -117,5 +117,22 @@ Main Programming
             2. Now Create A Auth Folder in that connect database (auth_database.py) , Now Create a .py for creating table i.e (auth_table.py) , After This now create a model to mention our table name and fields in it i.e (models.py) And Also one more we have to mention our all pydnatic classed in one file that is (schemas.py)
             3. Now We Have To create a file called utilis.py in which we hash our password and also we check our password .
             4. Now We have to create one file that create a secret key which we are storing in main.py (in future we store in .env) you can give secret_key by your self but we trust on system soo create a key and add in that variable
+            5. So Basically You Can check routed files and all the connections protected routes all in Auth Folder You Should Carry It For Next Project For JWT Auth .
 
+
+    10. Now We Are Moving Towards Docker 
+        What is docker :-
+            Docker is basically a container where is holds all the project and its installed library versions as it is .
+            for if you share your code to some test or push it on cloude then that time this should not conflict version and also run smoothely without any error okayy 
+            Docker creates a container where it holds all the records of code and version so it does not conflict to anothers system 
+        1. For Docker You Should Install Docker Desktop And Also Should Have An Account On Docker Hub this was very first step okayy ..
+        2. Now For Docker You Should Create Three files
+            1. .dockeringore -- in this you have to mention all the files or types that should ignore to contain in container of docker 
+            2. DockerFile -- Docker is the file we have to mention all steps where we have to create image .
+            3. Docker-compose.yml -- Where we can mention all our container for now we have 2 container okay one is (FastApi) second is ( Mysql ) so while creating a image it should know our containers.
+        3. In Our Requirement File we have to freez it all so while image is created another person should install same librari the command is (python -m pip freeze > requirements.txt)
+        3. When We Are Creating Docker File then that time we have to mention exact path everywhere
+        4. While Creating Docker-compose.yml dont forget indentation is very important 
+        5. Now Creating Docker Image you have to excute this code okayy (docker compose up --build -d)
         
+    

@@ -8,27 +8,47 @@ from sqlalchemy.orm import sessionmaker
 # declarative_base → helps create database tables using Python classes
 from sqlalchemy.orm import declarative_base
 
+import os
+
 
 
 # ----------------------------
 # DATABASE DETAILS
 # ----------------------------
 
+
+
 # Database username
-MYSQL_USER = "root"
+MYSQL_USER = os.getenv("MYSQL_USER","root")
 
 # Database password
-MYSQL_PASSWORD = "root"
+MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD","root")
 
 # Database location
 # localhost = database running on your own computer
-MYSQL_HOST = "localhost"
+MYSQL_HOST = os.getenv("MYSQL_HOST","db")
 
 # MySQL default port
-MYSQL_PORT = "3306"
+MYSQL_PORT = os.getenv("MYSQL_PORT","3306")
 
 # Database name
-MYSQL_DATABASE = "fastapi_db"
+MYSQL_DATABASE = os.getenv("MYSQL_DATABASE","fastapi_db")
+
+# # Database username
+# MYSQL_USER = "root"
+
+# # Database password
+# MYSQL_PASSWORD = "root"
+
+# # Database location
+# # localhost = database running on your own computer
+# MYSQL_HOST = "localhost"
+
+# # MySQL default port
+# MYSQL_PORT = "3306"
+
+# # Database name
+# MYSQL_DATABASE = "fastapi_db"
 
 
 
@@ -53,7 +73,7 @@ DATABASE_URL = (
 # ----------------------------
 
 # Engine = actual connection road to database
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL,echo=True,pool_pre_ping=True)
 
 
 
@@ -108,3 +128,24 @@ def get_db():
 # All database models inherit from this
 
 Base = declarative_base()
+
+
+
+
+# For Docker You Have to do like 
+
+# # Database username
+# MYSQL_USER = os.getenv("MYSQL_USER","root")
+
+# # Database password
+# MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD","root")
+
+# # Database location
+# # localhost = database running on your own computer
+# MYSQL_HOST = os.getenv("MYSQL_HOST","db")
+
+# # MySQL default port
+# MYSQL_PORT = os.getenv("MYSQL_PORT","3306")
+
+# # Database name
+# MYSQL_DATABASE = os.getenv("MYSQL_DATABASE","fastapi_db")
